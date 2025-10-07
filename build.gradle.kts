@@ -16,6 +16,9 @@ java {
 
 repositories {
 	mavenCentral()
+	maven {
+		url = uri("https://repository.jboss.org/")
+	}
 }
 
 dependencies {
