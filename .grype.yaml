@@ -2,5 +2,3 @@
 ignore:
   # Ignore a specific vulnerability by ID
   - vulnerabilityID: GHSA-78wr-2p64-hpwj
-    package: commons-io
-    version: 2.8.0
