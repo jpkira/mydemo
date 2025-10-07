@@ -21,14 +21,6 @@ repositories {
 	}
 }
 
-configurations.all {
-	resolutionStrategy.eachDependency {
-		if (requested.group == "commons-io" && requested.name == "commons-io") {
-			useVersion("2.14.0")
-			because("Force latest commons-io to avoid security vulnerability GHSA-78wr-2p64-hpwj")
-		}
-	}
-}
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")

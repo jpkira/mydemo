@@ -1,0 +1,4 @@
+---
+ignore:
+  # Ignore a specific vulnerability by ID
+  - vulnerabilityID: "GHSA-78wr-2p64-hpwj"
