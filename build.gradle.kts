@@ -21,14 +21,21 @@ repositories {
 	}
 }
 
+configurations.all {
+	resolutionStrategy.eachDependency {
+		if (requested.group == "commons-io" && requested.name == "commons-io") {
+			useVersion("2.14.0")
+			because("Force latest commons-io to avoid security vulnerability GHSA-78wr-2p64-hpwj")
+		}
+	}
+}
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
-	implementation("org.springframework.security:spring-security-saml2-service-provider") {
-		exclude("commons-io:commons-io")
-	}
+	implementation("org.springframework.security:spring-security-saml2-service-provider")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
