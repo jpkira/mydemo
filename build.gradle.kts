@@ -34,6 +34,13 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	constraints {
+        // Force a specific version for a transitive dependency
+        implementation("org.bouncycastle:bcprov-jdk18on:1.78.1") {
+            because("vulnerability: GHSA-v435-xc8x-wvr9")
+        }
+    }
 }
 
 tasks.withType<Test> {
