@@ -21,6 +21,11 @@ repositories {
 	}
 }
 
+configurations.all {
+    resolutionStrategy {
+        force("org.apache.commons:commons-lang3:3.18.0") // Forces slf4j-api to version 1.7.25
+    }
+}
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
@@ -40,13 +45,6 @@ dependencies {
         implementation("org.bouncycastle:bcprov-jdk18on:1.78") {
             because("vulnerability: GHSA-v435-xc8x-wvr9 and  GHSA-4cx2-fc23-5wg6")
         }
-
-		implementation("org.apache.commons:commons-lang3") {
-			because("vulnerability:  GHSA-j288-q9x7-2f5v")
-			version {
-            	strictly("3.18.0") // Enforces version 1.7.25 for slf4j-api
-        	}
-		}
 
 		implementation("org.bouncycastle:bcpkix-jdk18on:1.79") {
 			because("vulnerability:  GHSA-4cx2-fc23-5wg6")
