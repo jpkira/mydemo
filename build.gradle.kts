@@ -21,12 +21,17 @@ repositories {
 	}
 }
 
+ 
 configurations.all {
-    resolutionStrategy {
-        force("org.apache.commons:commons-lang3:3.18.0") // Forces slf4j-api to version 1.7.25
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.apache.commons" && requested.name == "commons-lang3") {
+            useVersion("3.18.0")
+            because("Force fixed version due to GHSA-j288-q9x7-2f5v")
+        }
     }
 }
 
+ 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
