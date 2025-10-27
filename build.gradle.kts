@@ -37,12 +37,16 @@ dependencies {
 
 	constraints {
         // Force a specific version for a transitive dependency
-        implementation("org.bouncycastle:bcprov-jdk18on:1.79") {
+        implementation("org.bouncycastle:bcprov-jdk18on:1.78") {
             because("vulnerability: GHSA-v435-xc8x-wvr9 and  GHSA-4cx2-fc23-5wg6")
         }
 
 		implementation("org.apache.commons:commons-lang3:3.18.0") {
 			because("vulnerability:  GHSA-j288-q9x7-2f5v")
+		}
+
+		implementation("org.bouncycastle:bcpkix-jdk18on:1.79") {
+			because("vulnerability:  GHSA-4cx2-fc23-5wg6")
 		}
     }
 }
