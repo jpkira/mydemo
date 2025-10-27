@@ -43,6 +43,7 @@ dependencies {
 
 		implementation("org.apache.commons:commons-lang3:3.18.0") {
 			because("vulnerability:  GHSA-j288-q9x7-2f5v")
+			force = true
 		}
 
 		implementation("org.bouncycastle:bcpkix-jdk18on:1.79") {
