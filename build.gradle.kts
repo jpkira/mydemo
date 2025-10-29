@@ -44,7 +44,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	compileOnly("commons-io:commons-io:2.8.0")
+	// compileOnly("commons-io:commons-io:2.8.0")
 }
 
 tasks.withType<Test> {
