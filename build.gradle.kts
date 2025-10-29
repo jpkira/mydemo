@@ -22,14 +22,14 @@ repositories {
 }
 
  
-configurations.all {
-    resolutionStrategy.eachDependency {
-        if (requested.group == "org.apache.commons" && requested.name == "commons-lang3") {
-            useVersion("3.18.0")
-            because("Force fixed version due to GHSA-j288-q9x7-2f5v")
-        }
-    }
-}
+// configurations.all {
+//     resolutionStrategy.eachDependency {
+//         if (requested.group == "org.apache.commons" && requested.name == "commons-lang3") {
+//             useVersion("3.18.0")
+//             because("Force fixed version due to GHSA-j288-q9x7-2f5v")
+//         }
+//     }
+// }
 
  
 dependencies {
@@ -37,7 +37,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
-	implementation("org.springframework.security:spring-security-saml2-service-provider:7.0.0-RC1")
+	implementation("org.springframework.security:spring-security-saml2-service-provider")
 	implementation("org.springframework.session:spring-session-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
