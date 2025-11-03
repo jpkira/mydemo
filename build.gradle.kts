@@ -1,6 +1,6 @@
 plugins {
 	java
-	id("org.springframework.boot") version "3.5.6"
+	id("org.springframework.boot") version "4.0.0-RC1"
 	id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -22,16 +22,6 @@ repositories {
 }
 
  
-// configurations.all {
-//     resolutionStrategy.eachDependency {
-//         if (requested.group == "org.apache.commons" && requested.name == "commons-lang3") {
-//             useVersion("3.18.0")
-//             because("Force fixed version due to GHSA-j288-q9x7-2f5v")
-//         }
-//     }
-// }
-
- 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
@@ -44,7 +34,6 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	// compileOnly("commons-io:commons-io:2.8.0")
 }
 
 tasks.withType<Test> {
