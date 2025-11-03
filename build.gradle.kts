@@ -21,6 +21,20 @@ repositories {
 	}
 }
 
+allprojects {
+    configurations.configureEach {
+        resolutionStrategy.eachDependency { 
+            if (requested.group == "commons-io" && requested.name == "commons-io") {
+                useVersion("2.14.0")
+                because("Fix GHSA-78wr-2p64-hpwj vulnerability")
+            }
+        }
+
+        // Force override even for transitive dependencies
+        resolutionStrategy.force("commons-io:commons-io:2.14.0")
+    }
+}
+
  
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
