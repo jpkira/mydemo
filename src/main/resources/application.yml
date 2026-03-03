@@ -1,0 +1,23 @@
+---
+spring:
+  application:
+    name: mydemo
+  # datasource:
+  #   url: 'jdbc:h2:file:~/sessiondb;DB_CLOSE_ON_EXIT=FALSE'
+  #   driver-class-name: org.h2.Driver
+  #   username: sa
+  #   password: null
+  # session:
+  #   store-type: jdbc
+  #   jdbc:
+  #     initialize-schema-always: always
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          idcs:
+            assertingparty:
+              metadata-uri: 'classpath:idcs.xml'
+              verification:
+                credentials:
+                  - certificate-location: 'classpath:idcs.crt'
